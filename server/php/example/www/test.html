@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>EnvayaSMS Request Simulator</title>
+<title>fondaSMS Request Simulator</title>
 <style type='text/css'>
 body
 {
@@ -10,7 +10,7 @@ body
 {
     margin-bottom:10px;
 }
-.smsTable th 
+.smsTable th
 {
     width:200px;
     text-align:right;
@@ -24,7 +24,7 @@ body
 </style>
 </head>
 <body>
-<h2>EnvayaSMS Request Simulator</h2>
+<h2>fondaSMS Request Simulator</h2>
 <div style='float:left;width:400px'>
 <table class='smsTable'>
 <tr><th>Server URL</th><td><input id='server_url' type='text' size='40' /></td></tr>
@@ -48,7 +48,7 @@ body
     <option value='send_status'>send_status</option>
     <option value='device_status'>device_status</option>
     <option value='test'>test</option>
-    <option value='amqp_started'>amqp_started</option>    
+    <option value='amqp_started'>amqp_started</option>
 </select></td></tr>
 
 </table>
@@ -77,8 +77,8 @@ body
 <tr><th>Status</th><td><select id='status'>
     <option value='sent'>sent</option>
     <option value='failed'>failed</option>
-    <option value='queued'>queued</option>    
-    <option value='cancelled'>cancelled</option>    
+    <option value='queued'>queued</option>
+    <option value='cancelled'>cancelled</option>
 </select></td></tr>
 <tr><th>Error Message</th><td><input id='error' type='text' size='50' /></td></tr>
 </table>
@@ -93,9 +93,9 @@ body
 <tr><th>Status</th><td><select id='device_status'>
     <option value='power_connected'>power_connected</option>
     <option value='power_disconnected'>power_disconnected</option>
-    <option value='battery_low'>battery_low</option>    
-    <option value='battery_okay'>battery_okay</option>    
-    <option value='send_limit_exceeded'>send_limit_exceeded</option>        
+    <option value='battery_low'>battery_low</option>
+    <option value='battery_okay'>battery_okay</option>
+    <option value='send_limit_exceeded'>send_limit_exceeded</option>
 </select></td></tr>
 </table>
 </div>
@@ -111,10 +111,10 @@ body
 function $(id) { return document.getElementById(id); }
 
 function actionChanged()
-{      
+{
     setTimeout(function() {
         var action = $('action').value;
-    
+
         var options = $('action').options;
         for (var i = 0; i < options.length; i++)
         {
@@ -125,11 +125,11 @@ function actionChanged()
 }
 
 function performAction() {
-    
+
     var server_url = $('server_url').value;
     var password = $('password').value;
     var action = $('action').value;
-    
+
     var params = {
         version: '29',
         phone_number: $('phone_number').value,
@@ -142,7 +142,7 @@ function performAction() {
         network: $('network').value,
         now: $('now').value
     };
-    
+
     if (action == 'incoming')
     {
         params.message_type = $('message_type').value;
@@ -164,18 +164,18 @@ function performAction() {
     {
         params.status = $('consumer_tag').value;
     }
-            
+
     var xhr = (window.ActiveXObject && !window.XMLHttpRequest) ? new ActiveXObject("Msxml2.XMLHTTP") : new XMLHttpRequest();
 
     xhr.onreadystatechange = function()
     {
         if (xhr.readyState == 4)
-        {            
+        {
             $('response').appendChild(document.createTextNode("HTTP " + xhr.status + " " + xhr.statusText + "\n" +
                 xhr.getAllResponseHeaders() + "\n" + xhr.responseText));
         }
-    };  
-    
+    };
+
     var keyArr = [];
     var paramArr = [];
     for (var name in params)
@@ -184,40 +184,40 @@ function performAction() {
         paramArr.push(name + '=' + encodeURIComponent(params[name]));
     }
     var paramStr = paramArr.join('&');
-    
-    keyArr.sort();    
+
+    keyArr.sort();
     var signatureInput = server_url;
     for (var i = 0; i < keyArr.length; i++)
     {
         signatureInput += "," + keyArr[i] + "=" + params[keyArr[i]];
     }
     signatureInput += "," + password;
-            
+
     var signature = Crypto.util.bytesToBase64(Crypto.SHA1(
         Crypto.charenc.UTF8.stringToBytes(signatureInput), { asBytes: true }));
 
     xhr.open("POST", server_url, true);
-    
+
     var requestHeaders = {
         "Content-Type": "application/x-www-form-urlencoded",
         "Content-Length": paramStr.length,
         "X-Request-Signature": signature
     }
-    
+
     var request = $('request');
     request.innerHTML = "POST " + server_url + "\n";
-    
+
     for (var name in requestHeaders)
     {
-        xhr.setRequestHeader(name, requestHeaders[name]);        
+        xhr.setRequestHeader(name, requestHeaders[name]);
         request.appendChild(document.createTextNode(name + ": " + requestHeaders[name] + "\n"));
     }
-    
-    request.appendChild(document.createTextNode("\n" + paramStr));    
-    
+
+    request.appendChild(document.createTextNode("\n" + paramStr));
+
     $('response').innerHTML = "";
-    
-    xhr.send(paramStr);    
+
+    xhr.send(paramStr);
 }
 
 $('server_url').value = location.href.replace("test.html","gateway.php");

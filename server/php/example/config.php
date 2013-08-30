@@ -3,7 +3,7 @@
 ini_set('display_errors','0');
 
 /*
- * This password must match the password in the EnvayaSMS app settings,
+ * This password must match the password in the fondaSMS app settings,
  * otherwise example/www/gateway.php will return an "Invalid request signature" error.
  */
 
@@ -18,8 +18,8 @@ $OUTGOING_DIR_NAME = __DIR__."/outgoing_sms";
 
 /*
  * AMQP allows you to send outgoing messages in real-time (i.e. 'push' instead of polling).
- * In order to use AMQP, you would need to install an AMQP server such as RabbitMQ, and 
- * also enter the AMQP connection settings in the app. (The settings in the EnvayaSMS app
+ * In order to use AMQP, you would need to install an AMQP server such as RabbitMQ, and
+ * also enter the AMQP connection settings in the app. (The settings in the fondaSMS app
  * should use the same vhost and queue name, but may use a different host/port/user/password.)
  */
 
