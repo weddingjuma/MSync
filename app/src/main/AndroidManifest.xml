@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="ml.jokkolabs.fondasms"
-      android:versionCode="30"
-      android:versionName="3.0.2">
-
-    <uses-sdk android:minSdkVersion="4" />
+      package="com.yeleman.fondasms">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
@@ -21,48 +17,51 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
-    <application android:name="ml.jokkolabs.fondasms.App"
-        android:icon="@drawable/icon" android:label="@string/app_name">
-        <activity android:name="ml.jokkolabs.fondasms.ui.Main" android:label="@string/app_name" android:noHistory="true">
+    <application android:name="com.yeleman.fondasms.App"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name">
+
+        <activity android:name="com.yeleman.fondasms.ui.Main" android:label="@string/app_name" android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="ml.jokkolabs.fondasms.ui.LogView" android:label="@string/log_view_title" />
-        <activity android:name="ml.jokkolabs.fondasms.ui.Help" android:label="@string/help_title" />
-        <activity android:name="ml.jokkolabs.fondasms.ui.TestPhoneNumbers" android:label="@string/test_phone_numbers_title" />
-        <activity android:name="ml.jokkolabs.fondasms.ui.IgnoredPhoneNumbers" android:label="@string/ignored_phone_numbers_title" />
-        <activity android:name="ml.jokkolabs.fondasms.ui.MessagingSmsInbox" android:label="@string/forward_saved_title" />
-        <activity android:name="ml.jokkolabs.fondasms.ui.MessagingMmsInbox" android:label="@string/forward_saved_title" />
-        <activity android:name="ml.jokkolabs.fondasms.ui.MessagingSentSms" android:label="@string/forward_saved_title" />
-        <activity android:name="ml.jokkolabs.fondasms.ui.PendingMessages" android:label="@string/pending_messages_title" />
-        <activity android:name="ml.jokkolabs.fondasms.ui.Prefs" android:label="@string/settings_title" />
-        <activity android:name="ml.jokkolabs.fondasms.ui.ExpansionPacks" android:label="..." />
-        <receiver android:name="ml.jokkolabs.fondasms.receiver.SmsReceiver">
+        <activity android:name="com.yeleman.fondasms.ui.LogView" android:label="@string/log_view_title" />
+        <activity android:name="com.yeleman.fondasms.ui.Help" android:label="@string/help_title" />
+        <activity android:name="com.yeleman.fondasms.ui.TestPhoneNumbers" android:label="@string/test_phone_numbers_title" />
+        <activity android:name="com.yeleman.fondasms.ui.IgnoredPhoneNumbers" android:label="@string/ignored_phone_numbers_title" />
+        <activity android:name="com.yeleman.fondasms.ui.MessagingSmsInbox" android:label="@string/forward_saved_title" />
+        <activity android:name="com.yeleman.fondasms.ui.MessagingMmsInbox" android:label="@string/forward_saved_title" />
+        <activity android:name="com.yeleman.fondasms.ui.MessagingSentSms" android:label="@string/forward_saved_title" />
+        <activity android:name="com.yeleman.fondasms.ui.PendingMessages" android:label="@string/pending_messages_title" />
+        <activity android:name="com.yeleman.fondasms.ui.Prefs" android:label="@string/settings_title" />
+        <activity android:name="com.yeleman.fondasms.ui.ExpansionPacks" android:label="..." />
+        <receiver android:name="com.yeleman.fondasms.receiver.SmsReceiver">
             <intent-filter android:priority="101">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="ml.jokkolabs.fondasms.receiver.OutgoingSmsReceiver">
+        <receiver android:name="com.yeleman.fondasms.receiver.OutgoingSmsReceiver">
             <intent-filter>
-                <action android:name="ml.jokkolabs.fondasms.OUTGOING_SMS" />
+                <action android:name="com.yeleman.fondasms.OUTGOING_SMS" />
                 <data android:scheme="content" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="ml.jokkolabs.fondasms.receiver.MessageStatusNotifier" android:exported="true">
+        <receiver android:name="com.yeleman.fondasms.receiver.MessageStatusNotifier" android:exported="true">
             <intent-filter>
-                <action android:name="ml.jokkolabs.fondasms.MESSAGE_STATUS" />
+                <action android:name="com.yeleman.fondasms.MESSAGE_STATUS" />
                 <data android:scheme="content" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="ml.jokkolabs.fondasms.receiver.NudgeReceiver" android:exported="true">
+        <receiver android:name="com.yeleman.fondasms.receiver.NudgeReceiver" android:exported="true">
             <intent-filter>
-                <action android:name="ml.jokkolabs.fondasms.NUDGE" />
+                <action android:name="com.yeleman.fondasms.NUDGE" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
@@ -70,36 +69,36 @@
 
         <!-- we don't really use message delivery notifications yet... -->
 
-        <receiver android:name="ml.jokkolabs.fondasms.receiver.MessageDeliveryNotifier" android:exported="true">
+        <receiver android:name="com.yeleman.fondasms.receiver.MessageDeliveryNotifier" android:exported="true">
             <intent-filter>
-                <action android:name="ml.jokkolabs.fondasms.MESSAGE_DELIVERY" />
+                <action android:name="com.yeleman.fondasms.MESSAGE_DELIVERY" />
                 <data android:scheme="content" />
             </intent-filter>
         </receiver>
 
 
-        <receiver android:name="ml.jokkolabs.fondasms.receiver.DequeueOutgoingMessageReceiver">
+        <receiver android:name="com.yeleman.fondasms.receiver.DequeueOutgoingMessageReceiver">
         </receiver>
 
-        <receiver android:name="ml.jokkolabs.fondasms.receiver.OutgoingMessageTimeout">
+        <receiver android:name="com.yeleman.fondasms.receiver.OutgoingMessageTimeout">
         </receiver>
 
-        <receiver android:name="ml.jokkolabs.fondasms.receiver.OutgoingMessagePoller">
+        <receiver android:name="com.yeleman.fondasms.receiver.OutgoingMessagePoller">
         </receiver>
 
-        <receiver android:name="ml.jokkolabs.fondasms.receiver.OutgoingMessageRetry">
+        <receiver android:name="com.yeleman.fondasms.receiver.OutgoingMessageRetry">
         </receiver>
 
-        <receiver android:name="ml.jokkolabs.fondasms.receiver.IncomingMessageRetry">
+        <receiver android:name="com.yeleman.fondasms.receiver.IncomingMessageRetry">
         </receiver>
 
-        <receiver android:name="ml.jokkolabs.fondasms.receiver.ReenableWifiReceiver">
+        <receiver android:name="com.yeleman.fondasms.receiver.ReenableWifiReceiver">
         </receiver>
 
-        <receiver android:name="ml.jokkolabs.fondasms.receiver.StartAmqpConsumer">
+        <receiver android:name="com.yeleman.fondasms.receiver.StartAmqpConsumer">
         </receiver>
 
-        <receiver android:name="ml.jokkolabs.fondasms.receiver.ExpansionPackInstallReceiver">
+        <receiver android:name="com.yeleman.fondasms.receiver.ExpansionPackInstallReceiver">
             <intent-filter>
                  <action android:name="android.intent.action.PACKAGE_ADDED" />
                  <action android:name="android.intent.action.PACKAGE_REMOVED" />
@@ -108,13 +107,13 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name="ml.jokkolabs.fondasms.receiver.ConnectivityChangeReceiver" >
+        <receiver android:name="com.yeleman.fondasms.receiver.ConnectivityChangeReceiver" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="ml.jokkolabs.fondasms.receiver.DeviceStatusReceiver">
+        <receiver android:name="com.yeleman.fondasms.receiver.DeviceStatusReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
@@ -123,19 +122,19 @@
             </intent-filter>
         </receiver>
 
-        <service android:name="ml.jokkolabs.fondasms.service.CheckMessagingService">
+        <service android:name="com.yeleman.fondasms.service.CheckMessagingService">
         </service>
 
-        <service android:name="ml.jokkolabs.fondasms.service.EnabledChangedService">
+        <service android:name="com.yeleman.fondasms.service.EnabledChangedService">
         </service>
 
-        <service android:name="ml.jokkolabs.fondasms.service.ForegroundService">
+        <service android:name="com.yeleman.fondasms.service.ForegroundService">
         </service>
 
-        <service android:name="ml.jokkolabs.fondasms.service.AmqpConsumerService">
+        <service android:name="com.yeleman.fondasms.service.AmqpConsumerService">
         </service>
 
-        <service android:name="ml.jokkolabs.fondasms.service.AmqpHeartbeatService">
+        <service android:name="com.yeleman.fondasms.service.AmqpHeartbeatService">
         </service>
     </application>
 </manifest>

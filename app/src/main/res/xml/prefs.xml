@@ -65,8 +65,8 @@
     >
         <intent
             android:action="android.intent.action.MAIN"
-            android:targetPackage="ml.jokkolabs.fondasms"
-            android:targetClass="ml.jokkolabs.fondasms.ui.ExpansionPacks" />
+            android:targetPackage="com.yeleman.fondasms"
+            android:targetClass="com.yeleman.fondasms.ui.ExpansionPacks" />
     </PreferenceScreen>
 
     <CheckBoxPreference
@@ -83,8 +83,8 @@
     >
        <intent
             android:action="android.intent.action.MAIN"
-            android:targetPackage="ml.jokkolabs.fondasms"
-            android:targetClass="ml.jokkolabs.fondasms.ui.IgnoredPhoneNumbers" />
+            android:targetPackage="com.yeleman.fondasms"
+            android:targetClass="com.yeleman.fondasms.ui.IgnoredPhoneNumbers" />
     </PreferenceScreen>
 
     <CheckBoxPreference
@@ -102,8 +102,8 @@
     >
        <intent
             android:action="android.intent.action.MAIN"
-            android:targetPackage="ml.jokkolabs.fondasms"
-            android:targetClass="ml.jokkolabs.fondasms.ui.TestPhoneNumbers" />
+            android:targetPackage="com.yeleman.fondasms"
+            android:targetClass="com.yeleman.fondasms.ui.TestPhoneNumbers" />
     </PreferenceScreen>
 
     </PreferenceCategory>
@@ -209,8 +209,8 @@
         >
        <intent
             android:action="android.intent.action.MAIN"
-            android:targetPackage="ml.jokkolabs.fondasms"
-            android:targetClass="ml.jokkolabs.fondasms.ui.Help" />
+            android:targetPackage="com.yeleman.fondasms"
+            android:targetClass="com.yeleman.fondasms.ui.Help" />
     </PreferenceScreen>
     </PreferenceCategory>
 

@@ -13,9 +13,11 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "ml.jokkolabs.fondasms"
+        applicationId "com.yeleman.fondasms"
         minSdkVersion 10
         targetSdkVersion 4
+        versionCode 1
+        versionName "1.0"
     }
 
     buildTypes {
