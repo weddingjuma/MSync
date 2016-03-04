@@ -70,8 +70,8 @@ public abstract class QueuedMessage
             app.log("2nd failure; retry in 5 minutes");
             nextRetryTime = now + 5 * minute;
         } else if (numRetries == 3) {
-            app.log("3rd failure; retry in 1 hour");
-            nextRetryTime = now + 60 * minute;
+            app.log("3rd failure; retry in 30mn");
+            nextRetryTime = now + 30 * minute;
         } else {
             app.log("4th failure: retry in 1 day");
             nextRetryTime = now + 24 * 60 * minute;

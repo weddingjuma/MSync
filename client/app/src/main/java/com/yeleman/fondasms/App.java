@@ -283,7 +283,7 @@ public final class App extends Application {
         }
 
         log("Can't send outgoing SMS: maximum limit of "
-            + getOutgoingMessageLimit() + " in 1 hour reached");
+            + getOutgoingMessageLimit() + " in 30mn reached");
         log("To increase this limit, install an expansion pack.");
 
         HttpTask task = new HttpTask(this,
@@ -355,7 +355,7 @@ public final class App extends Application {
 
         if (prevLimit != newLimit)
         {
-            log("Outgoing SMS rate limit: " + newLimit + " messages/hour");
+            log("Outgoing SMS rate limit: " + newLimit + " messages/30mn");
         }
         sendBroadcast(new Intent(App.EXPANSION_PACKS_CHANGED_INTENT));
     }

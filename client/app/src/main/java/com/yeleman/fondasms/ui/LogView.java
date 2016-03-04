@@ -257,7 +257,7 @@ public class LogView extends Activity {
         boolean ignoreNonNumeric = app.ignoreNonNumeric();
         boolean testMode = app.isTestMode();
 
-        builder.append("- Send up to " + app.getOutgoingMessageLimit()+ " SMS/hour\n");
+        builder.append("- Send up to " + app.getOutgoingMessageLimit()+ " SMS/30mn\n");
 
         if (ignoredNumbers.isEmpty() && !ignoreShortcodes && !ignoreNonNumeric && !testMode)
         {

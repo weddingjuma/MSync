@@ -184,7 +184,7 @@ public class Prefs extends PreferenceActivity implements OnSharedPreferenceChang
         else if ("send_limit".equals(key))
         {
             int limit = app.getOutgoingMessageLimit();
-            String limitStr = "Send up to " + limit + " SMS per hour.";
+            String limitStr = "Send up to " + limit + " SMS per 30mn.";
 
             if (limit < 300)
             {
