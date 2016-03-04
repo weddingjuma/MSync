@@ -35,7 +35,7 @@
     <ListPreference
             android:key="outgoing_interval"
             android:title="Poll interval"
-            android:defaultValue="60"
+            android:defaultValue="30"
             android:entries="@array/check_intervals"
             android:entryValues="@array/check_intervals_values"
     ></ListPreference>

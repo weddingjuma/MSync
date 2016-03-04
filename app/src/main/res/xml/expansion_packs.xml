@@ -20,4 +20,166 @@
             android:data="market://details?id=com.yeleman.fondasms.pack02"
         />
     </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack03"
+        android:title="SMS Expansion Pack 3"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack03"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack04"
+        android:title="SMS Expansion Pack 4"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack04"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack05"
+        android:title="SMS Expansion Pack 5"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack05"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack06"
+        android:title="SMS Expansion Pack 6"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack06"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack07"
+        android:title="SMS Expansion Pack 7"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack07"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack08"
+        android:title="SMS Expansion Pack 8"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack08"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack09"
+        android:title="SMS Expansion Pack 9"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack09"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack10"
+        android:title="SMS Expansion Pack 10"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack10"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack11"
+        android:title="SMS Expansion Pack 11"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack11"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack12"
+        android:title="SMS Expansion Pack 12"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack12"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack13"
+        android:title="SMS Expansion Pack 13"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack13"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack14"
+        android:title="SMS Expansion Pack 14"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack14"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack15"
+        android:title="SMS Expansion Pack 15"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack15"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack16"
+        android:title="SMS Expansion Pack 16"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack16"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack17"
+        android:title="SMS Expansion Pack 17"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack17"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack18"
+        android:title="SMS Expansion Pack 18"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack18"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack19"
+        android:title="SMS Expansion Pack 19"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack19"
+        />
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="pack20"
+        android:title="SMS Expansion Pack 20"
+        android:summary="...">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="market://details?id=com.yeleman.fondasms.pack20"
+        />
+    </PreferenceScreen>
 </PreferenceScreen>
