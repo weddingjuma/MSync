@@ -20,7 +20,10 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Icon;
+import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
 import com.yeleman.fondasms.App;
@@ -155,16 +158,32 @@ public class ForegroundService extends Service {
     {
         if (app.isEnabled())
         {
-            CharSequence text = getText(R.string.service_started);
 
-            Notification notification = new Notification(R.drawable.icon, text,
-                    System.currentTimeMillis());
+            CharSequence contentTitle = getText(R.string.running);
+            CharSequence contentText = getText(R.string.service_started);
+            PendingIntent contentIntent = PendingIntent.getActivity(this, 0, new Intent(this, Main.class), 0);
 
-            PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
-                    new Intent(this, Main.class), 0);
-
-            CharSequence info = getText(R.string.running);
-            notification.setLatestEventInfo(this, info, text, contentIntent);
+            Context context = getApplicationContext();
+            Notification notification = null;
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
+                notification = new Notification();
+                notification.icon = R.drawable.icon;
+                try {
+                    Method deprecatedMethod = notification.getClass().getMethod("setLatestEventInfo", Context.class, CharSequence.class, CharSequence.class, PendingIntent.class);
+                    deprecatedMethod.invoke(notification, context, contentTitle, null, contentIntent);
+                } catch (NoSuchMethodException | IllegalAccessException | IllegalArgumentException
+                        | InvocationTargetException e) {
+                    Log.w(App.TAG, "Method not found", e);
+                }
+            } else {
+                // Use new API
+                Notification.Builder builder = new Notification.Builder(context)
+                        .setContentIntent(contentIntent)
+                        .setSmallIcon(R.drawable.icon)
+                        .setContentTitle(contentTitle)
+                        .setContentText(contentText);
+                notification = builder.build();
+            }
 
             startForegroundCompat(R.string.service_started, notification);
         }
