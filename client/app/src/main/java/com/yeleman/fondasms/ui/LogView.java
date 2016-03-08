@@ -346,8 +346,12 @@ public class LogView extends Activity {
             startActivity(new Intent(this, PendingMessages.class));
             return true;
         case R.id.test:
-            app.log("Testing server connection...");
-            new TestTask().execute();
+            if (app.isConfigured()) {
+                app.log("Testing server connection...");
+                new TestTask().execute();
+            } else {
+                app.log("Can't test connection; server URL not set");
+            }
             return true;
         default:
             return super.onOptionsItemSelected(item);
