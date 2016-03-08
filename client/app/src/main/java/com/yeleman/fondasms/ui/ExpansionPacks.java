@@ -72,10 +72,4 @@ public class ExpansionPacks extends PreferenceActivity  {
             }
         }
     }
-
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        this.finish();
-        return true;
-    }
 }

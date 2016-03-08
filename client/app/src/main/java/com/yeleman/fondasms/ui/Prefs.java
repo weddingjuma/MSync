@@ -11,7 +11,6 @@ import android.preference.*;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
 import android.text.method.PasswordTransformationMethod;
-import android.view.Menu;
 import com.yeleman.fondasms.App;
 import com.yeleman.fondasms.R;
 
@@ -226,12 +225,5 @@ public class Prefs extends PreferenceActivity implements OnSharedPreferenceChang
                 p.setSummary(text);
             }
         }
-    }
-
-    // any other time the Menu key is pressed
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
-        this.finish();
-        return (true);
     }
 }
