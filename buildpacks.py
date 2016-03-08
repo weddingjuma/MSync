@@ -12,9 +12,10 @@ import tempfile
 import sys
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-CERTIFICATE = '--no-signing'
+CERTIFICATE = None
 STOREPASSWD = ''
 KEYPASSWD = ''
+
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
@@ -33,7 +34,7 @@ def build_pack(pid, pident):
     # copy source tree to temp directory
     new_path = tempfile.mkdtemp()
     new_root = os.path.join(new_path, pident)
-    shutil.copytree(CURRENT_DIR, new_root)
+    shutil.copytree(os.path.join(CURRENT_DIR, 'singlepack'), new_root)
 
     # move to new root
     os.chdir(new_root)
@@ -113,8 +114,7 @@ if __name__ == '__main__':
 
     os.chdir(CURRENT_DIR)
     nb_packs = 1
-    parent = os.path.dirname(CURRENT_DIR)
-    with open(os.path.join(parent, 'client', 'app', 'src', 'main', 'res',
+    with open(os.path.join('client', 'app', 'src', 'main', 'res',
                            'xml', 'expansion_packs.xml'), 'r') as f:
         nb_packs = sum([1 for line in f.readlines()
                         if 'android:key="pack' in line])
