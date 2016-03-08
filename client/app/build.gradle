@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "com.yeleman.fondasms"
-        minSdkVersion 12
+        minSdkVersion 10
         targetSdkVersion 4
         versionCode 1
         versionName "1.0"
