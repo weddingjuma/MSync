@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
 public class QueryExpansionPacksReceiver extends BroadcastReceiver {
 
@@ -14,7 +13,7 @@ public class QueryExpansionPacksReceiver extends BroadcastReceiver {
             return;
         }
 
-        Toast.makeText(context, context.getPackageName() + " queried", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, context.getPackageName() + " queried", Toast.LENGTH_SHORT).show();
         try {
             getResultExtras(true).getStringArrayList(App.QUERY_EXPANSION_PACKS_EXTRA_PACKAGES).add(context.getPackageName());
         } catch (Exception e) {

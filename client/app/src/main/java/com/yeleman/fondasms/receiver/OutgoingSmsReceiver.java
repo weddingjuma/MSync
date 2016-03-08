@@ -16,6 +16,7 @@ public class OutgoingSmsReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent)
     {
         Toast.makeText(context, context.getPackageName() + " received SMS request", Toast.LENGTH_SHORT).show();
+
         Bundle extras = intent.getExtras();
         String to = extras.getString(App.OUTGOING_SMS_EXTRA_TO);
         String serverId = extras.getString(App.OUTGOING_SMS_EXTRA_SERVERID);
