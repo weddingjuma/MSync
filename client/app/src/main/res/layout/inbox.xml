@@ -9,12 +9,12 @@
            android:layout_width="fill_parent"
         android:layout_height="wrap_content">        
     </Spinner>
-     <ListView android:id="@+id/list"
-               android:layout_width="fill_parent"
+    <ListView android:id="@android:id/list"
+        android:layout_width="fill_parent"
                android:layout_height="fill_parent"
                android:layout_weight="1"
        />
-    <TextView android:id="@+id/empty"
+    <TextView android:id="@android:id/empty"
         android:text="No messages found."
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
