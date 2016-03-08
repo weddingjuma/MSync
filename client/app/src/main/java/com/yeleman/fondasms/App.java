@@ -1,6 +1,8 @@
 package com.yeleman.fondasms;
 
 import com.yeleman.fondasms.service.EnabledChangedService;
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.Application;
@@ -8,9 +10,12 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.pm.ResolveInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -367,27 +372,26 @@ public final class App extends Application {
 
     public void updateExpansionPacks()
     {
-        ArrayList<String> packages = new ArrayList<String>();
+
+        ArrayList<String> packages = new ArrayList<>();
         Bundle extras = new Bundle();
         extras.putStringArrayList(App.QUERY_EXPANSION_PACKS_EXTRA_PACKAGES, packages);
 
-        sendOrderedBroadcast(
-                new Intent(App.QUERY_EXPANSION_PACKS_INTENT),
-                null,
-                new BroadcastReceiver() {
-                    @Override
-                    public void onReceive(Context context, Intent resultIntent) {
-
-                        Bundle extras = this.getResultExtras(false);
-
-                        setExpansionPacks(extras.getStringArrayList(App.QUERY_EXPANSION_PACKS_EXTRA_PACKAGES));
-
-                    }
-                },
-                null,
-                Activity.RESULT_OK,
-                null,
-                extras);
+        Intent intent = new Intent(App.QUERY_EXPANSION_PACKS_INTENT);
+        intent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+        sendOrderedBroadcast(intent, null, new BroadcastReceiver() {
+            @SuppressLint("NewApi")
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                ArrayList<String> aList = getResultExtras(true).getStringArrayList(App.QUERY_EXPANSION_PACKS_EXTRA_PACKAGES);
+                if (aList == null) {
+                    log("aList is null");
+                    return;
+                }
+                //log(aList.toString());
+                setExpansionPacks(aList);
+            }
+        }, null, Activity.RESULT_OK, null, extras);
     }
 
     private boolean pollActive = false;

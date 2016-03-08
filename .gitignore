@@ -38,3 +38,12 @@ client/local.properties
 
 *~
 *.swp
+
+
+singlepack/bin/
+singlepack/gen/
+singlepack/build/
+singlepack/*/build/
+singlepack/.idea/
+singlepack/.gradle/
+singlepack/local.properties
