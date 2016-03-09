@@ -42,12 +42,13 @@ def build_client():
                  .replace('CERTIFICATE', CERTIFICATE))
 
     # build APK
-    subprocess.call('rm -f build/outputs/apk/*.apk', shell=True)
-    subprocess.call(['./gradlew', 'build', 'assembleRelease'])
+    subprocess.call('rm -f app/build/outputs/apk/*.apk', shell=True)
+    subprocess.call(['./gradlew', 'assembleRelease'])
 
-    # restore build.gradle if required
-    if os.path.isfile(build_orig_fpath):
-        shutil.move(build_orig_fpath, build_fpath)
+    if CERTIFICATE is not None:
+        # restore build.gradle if required
+        if os.path.isfile(build_orig_fpath):
+            shutil.move(build_orig_fpath, build_fpath)
 
     # copy signed version to proper location
     logger.info("copying final file")

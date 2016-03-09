@@ -76,7 +76,7 @@ def build_pack(pid, pident):
 
     # build APK
     subprocess.call('rm -f build/outputs/apk/*.apk', shell=True)
-    subprocess.call(['./gradlew', 'build', 'assembleRelease'])
+    subprocess.call(['./gradlew', 'assembleRelease'])
 
     # copy signed version to proper location
     logger.info("copying final file")
