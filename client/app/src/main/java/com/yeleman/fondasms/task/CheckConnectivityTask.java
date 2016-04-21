@@ -8,8 +8,10 @@ import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.SystemClock;
+
 import com.yeleman.fondasms.App;
 import com.yeleman.fondasms.receiver.ReenableWifiReceiver;
+
 import java.io.IOException;
 import java.net.InetAddress;
 

@@ -2,6 +2,7 @@ package com.yeleman.fondasms.service;
 
 import android.app.IntentService;
 import android.content.Intent;
+
 import com.yeleman.fondasms.AmqpConsumer;
 import com.yeleman.fondasms.App;
 

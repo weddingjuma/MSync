@@ -4,10 +4,11 @@ package com.yeleman.fondasms;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
-import com.yeleman.fondasms.receiver.OutgoingMessageRetry;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.SystemClock;
+
+import com.yeleman.fondasms.receiver.OutgoingMessageRetry;
 import com.yeleman.fondasms.receiver.OutgoingMessageTimeout;
 
 public abstract class OutgoingMessage extends QueuedMessage {

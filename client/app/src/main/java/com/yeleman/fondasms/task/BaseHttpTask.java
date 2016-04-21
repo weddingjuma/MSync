@@ -2,14 +2,13 @@ package com.yeleman.fondasms.task;
 
 import android.os.AsyncTask;
 import android.os.Build;
+
 import com.yeleman.fondasms.App;
+import com.yeleman.fondasms.HttpData;
 import com.yeleman.fondasms.JsonUtils;
+import com.yeleman.fondasms.R;
 import com.yeleman.fondasms.XmlUtils;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -21,9 +20,14 @@ import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
 import org.w3c.dom.Document;
-import com.yeleman.fondasms.R;
 
-public class BaseHttpTask extends AsyncTask<String, Void, HttpResponse> {
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class BaseHttpTask extends AsyncTask<String, Void, HttpData> {
 
     protected App app;
     protected String url;
@@ -85,14 +89,15 @@ public class BaseHttpTask extends AsyncTask<String, Void, HttpResponse> {
         return httpPost;
     }
 
-    protected HttpResponse doInBackground(String... ignored)
+    protected HttpData doInBackground(String... ignored)
     {
         try
         {
             post = makeHttpPost();
 
             HttpClient client = app.getHttpClient();
-            return client.execute(post);
+            HttpResponse hr = client.execute(post);
+            return new HttpData(hr);
         }
         catch (Throwable ex)
         {
@@ -109,7 +114,8 @@ public class BaseHttpTask extends AsyncTask<String, Void, HttpResponse> {
                     post = makeHttpPost();
                     HttpClient client = app.getHttpClient();
 
-                    return client.execute(post);
+                    HttpResponse hr = client.execute(post);
+                    return new HttpData(hr);
                 }
             }
             catch (Throwable ex2)
@@ -121,51 +127,51 @@ public class BaseHttpTask extends AsyncTask<String, Void, HttpResponse> {
         return null;
     }
 
-    protected String getErrorText(HttpResponse response)
+    protected String getErrorText(HttpData data)
             throws Exception
     {
-        String contentType = getContentType(response);
+        String contentType = getContentType(data);
         String error = null;
 
         if (contentType.startsWith("application/json"))
         {
-            JSONObject json = JsonUtils.parseResponse(response);
+            JSONObject json = JsonUtils.parseResponse(data.body);
             error = JsonUtils.getErrorText(json);
         }
         else if (contentType.startsWith("text/xml"))
         {
-            Document xml = XmlUtils.parseResponse(response);
+            Document xml = XmlUtils.parseResponse(data.body);
             error = XmlUtils.getErrorText(xml);
         }
 
         if (error == null)
         {
-            error = "HTTP " + response.getStatusLine().getStatusCode();
+            error = "HTTP " + data.response.getStatusLine().getStatusCode();
         }
         return error;
     }
 
-    protected String getContentType(HttpResponse response)
+    protected String getContentType(HttpData data)
     {
-        Header contentTypeHeader = response.getFirstHeader("Content-Type");
+        Header contentTypeHeader = data.response.getFirstHeader("Content-Type");
         return (contentTypeHeader != null) ? contentTypeHeader.getValue() : "";
     }
 
     @Override
-    protected void onPostExecute(HttpResponse response) {
-        if (response != null)
+    protected void onPostExecute(HttpData data) {
+        if (data.response != null)
         {
             try
             {
-                int statusCode = response.getStatusLine().getStatusCode();
+                int statusCode = data.response.getStatusLine().getStatusCode();
 
                 if (statusCode == 200)
                 {
-                    handleResponse(response);
+                    handleResponse(data);
                 }
                 else if (statusCode >= 400 && statusCode <= 499)
                 {
-                    handleErrorResponse(response);
+                    handleErrorResponse(data);
                     handleFailure();
                 }
                 else
@@ -180,13 +186,13 @@ public class BaseHttpTask extends AsyncTask<String, Void, HttpResponse> {
                 handleFailure();
             }
 
-            try
-            {
-                response.getEntity().consumeContent();
-            }
-            catch (IOException ex)
-            {
-            }
+//            try
+//            {
+//                response.getEntity().consumeContent();
+//            }
+//            catch (IOException ex)
+//            {
+//            }
         }
         else
         {
@@ -195,11 +201,11 @@ public class BaseHttpTask extends AsyncTask<String, Void, HttpResponse> {
         }
     }
 
-    protected void handleResponse(HttpResponse response) throws Exception
+    protected void handleResponse(HttpData data) throws Exception
     {
     }
 
-    protected void handleErrorResponse(HttpResponse response) throws Exception
+    protected void handleErrorResponse(HttpData data) throws Exception
     {
     }
 

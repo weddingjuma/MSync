@@ -1,6 +1,5 @@
 package com.yeleman.fondasms.receiver;
 
-import com.yeleman.fondasms.App;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -8,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.widget.Toast;
+
+import com.yeleman.fondasms.App;
 
 import java.util.ArrayList;
 

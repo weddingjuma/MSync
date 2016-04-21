@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
+
 import com.yeleman.fondasms.IncomingMessage;
 import com.yeleman.fondasms.IncomingSms;
 import com.yeleman.fondasms.R;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -2,8 +2,10 @@ package com.yeleman.fondasms;
 
 import android.content.Intent;
 import android.os.SystemClock;
+
 import com.yeleman.fondasms.receiver.IncomingMessageRetry;
 import com.yeleman.fondasms.task.ForwarderTask;
+
 import org.apache.http.message.BasicNameValuePair;
 
 public abstract class IncomingMessage extends QueuedMessage {

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.SystemClock;
+
 import java.util.Date;
 
 public abstract class QueuedMessage

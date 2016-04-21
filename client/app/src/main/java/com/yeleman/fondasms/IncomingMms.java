@@ -2,16 +2,19 @@
 package com.yeleman.fondasms;
 
 import android.net.Uri;
-import java.io.IOException;
-import java.util.ArrayList;
 
-import org.json.*;
+import com.yeleman.fondasms.task.ForwarderTask;
 
-import java.util.List;
 import org.apache.http.entity.mime.FormBodyPart;
 import org.apache.http.entity.mime.content.ByteArrayBody;
 import org.apache.http.entity.mime.content.ContentBody;
-import com.yeleman.fondasms.task.ForwarderTask;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class IncomingMms extends IncomingMessage {
     private List<MmsPart> parts;

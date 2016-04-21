@@ -1,8 +1,9 @@
 package com.yeleman.fondasms.task;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.message.BasicNameValuePair;
+import com.yeleman.fondasms.HttpData;
 import com.yeleman.fondasms.IncomingMessage;
+
+import org.apache.http.message.BasicNameValuePair;
 
 public class ForwarderTask extends HttpTask {
 
@@ -19,9 +20,9 @@ public class ForwarderTask extends HttpTask {
     }
 
     @Override
-    protected void handleResponse(HttpResponse response) throws Exception {
+    protected void handleResponse(HttpData data) throws Exception {
         app.inbox.messageForwarded(message);
-        super.handleResponse(response);
+        super.handleResponse(data);
     }
 
     @Override

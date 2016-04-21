@@ -21,6 +21,13 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.yeleman.fondasms.App;
+import com.yeleman.fondasms.IncomingMessage;
+import com.yeleman.fondasms.OutgoingMessage;
+import com.yeleman.fondasms.QueuedMessage;
+import com.yeleman.fondasms.R;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -28,11 +35,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
-import com.yeleman.fondasms.App;
-import com.yeleman.fondasms.IncomingMessage;
-import com.yeleman.fondasms.OutgoingMessage;
-import com.yeleman.fondasms.QueuedMessage;
-import com.yeleman.fondasms.R;
 
 
 public class PendingMessages extends ListActivity {

@@ -4,7 +4,12 @@ package com.yeleman.fondasms;
 import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 
 /*
  * Utilities for parsing MMS and SMS messages from the content provider tables

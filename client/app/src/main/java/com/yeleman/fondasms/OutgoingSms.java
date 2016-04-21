@@ -2,6 +2,7 @@ package com.yeleman.fondasms;
 
 import android.content.Intent;
 import android.telephony.SmsManager;
+
 import java.util.ArrayList;
 
 public class OutgoingSms extends OutgoingMessage {

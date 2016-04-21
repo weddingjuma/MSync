@@ -1,11 +1,14 @@
 package com.yeleman.fondasms.ui;
 
-import com.yeleman.fondasms.task.HttpTask;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.*;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -18,11 +21,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import org.apache.http.HttpResponse;
-import org.apache.http.message.BasicNameValuePair;
+
 import com.yeleman.fondasms.App;
+import com.yeleman.fondasms.HttpData;
 import com.yeleman.fondasms.R;
-import java.util.ArrayList;
+import com.yeleman.fondasms.task.HttpTask;
+
+import org.apache.http.message.BasicNameValuePair;
+
 import java.util.List;
 
 public class LogView extends Activity {
@@ -65,7 +71,7 @@ public class LogView extends Activity {
         }
 
         @Override
-        protected void handleResponse(HttpResponse response) throws Exception
+        protected void handleResponse(HttpData data) throws Exception
         {
             app.log("Server connection OK!");
         }

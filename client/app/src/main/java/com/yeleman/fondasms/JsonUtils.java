@@ -3,22 +3,21 @@ package com.yeleman.fondasms;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.apache.commons.io.IOUtils;
-import org.apache.http.HttpResponse;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class JsonUtils {
 
-    public static JSONObject parseResponse(HttpResponse response)
+    public static JSONObject parseResponse(String responseBody)
             throws IOException, JSONException
     {
-        String responseBody = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
         return new JSONObject(responseBody);
     }
 

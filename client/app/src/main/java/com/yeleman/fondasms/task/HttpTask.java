@@ -4,15 +4,25 @@
  */
 package com.yeleman.fondasms.task;
 
-import com.yeleman.fondasms.OutgoingMessage;
-import com.yeleman.fondasms.JsonUtils;
-import com.yeleman.fondasms.Base64Coder;
-import com.yeleman.fondasms.App;
-import com.yeleman.fondasms.XmlUtils;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+
+import com.yeleman.fondasms.App;
+import com.yeleman.fondasms.Base64Coder;
+import com.yeleman.fondasms.HttpData;
+import com.yeleman.fondasms.JsonUtils;
+import com.yeleman.fondasms.OutgoingMessage;
+import com.yeleman.fondasms.XmlUtils;
+
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.SocketTimeoutException;
@@ -21,15 +31,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Collections;
 import java.util.Comparator;
+
 import javax.xml.parsers.ParserConfigurationException;
-import org.apache.commons.io.IOUtils;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
 
 public class HttpTask extends BaseHttpTask {
 
@@ -88,7 +91,7 @@ public class HttpTask extends BaseHttpTask {
     }
 
     @Override
-    protected HttpResponse doInBackground(String... ignored) {
+    protected HttpData doInBackground(String... ignored) {
         url = app.getServerUrl();
 
         if (url.length() == 0) {
@@ -218,27 +221,25 @@ public class HttpTask extends BaseHttpTask {
     }
 
     @Override
-    public void handleErrorResponse(HttpResponse response) throws Exception
+    public void handleErrorResponse(HttpData data) throws Exception
     {
-        app.log(getErrorText(response));
+        app.log(getErrorText(data));
     }
 
     @Override
-    protected void handleResponse(HttpResponse response) throws Exception {
+    protected void handleResponse(HttpData data) throws Exception {
 
-        String contentType = getContentType(response);
+        String contentType = getContentType(data);
 
         if (contentType.startsWith("application/json"))
         {
-            String responseBody = IOUtils.toString(response.getEntity().getContent(), "UTF-8");
-
-            JSONObject json = new JSONObject(responseBody);
+            JSONObject json = new JSONObject(data.body);
 
             handleResponseJSON(json);
         }
         else if (contentType.startsWith("text/xml"))
         {
-            Document xml = XmlUtils.parseResponse(response);
+            Document xml = XmlUtils.parseResponse(data.body);
 
             handleResponseXML(xml);
         }

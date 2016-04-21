@@ -1,14 +1,16 @@
 package com.yeleman.fondasms.ui;
 
-import com.yeleman.fondasms.IncomingMms;
-import com.yeleman.fondasms.IncomingMessage;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.yeleman.fondasms.IncomingMessage;
+import com.yeleman.fondasms.IncomingMms;
 import com.yeleman.fondasms.R;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -25,12 +25,13 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
 import android.util.Log;
+
 import com.yeleman.fondasms.App;
 import com.yeleman.fondasms.R;
+import com.yeleman.fondasms.ui.Main;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import com.yeleman.fondasms.ui.Main;
 
 /*
  *  Service running in foreground to make sure App instance stays

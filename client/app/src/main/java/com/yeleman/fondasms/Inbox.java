@@ -2,6 +2,7 @@ package com.yeleman.fondasms;
 
 import android.content.Intent;
 import android.net.Uri;
+
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;

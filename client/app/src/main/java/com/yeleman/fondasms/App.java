@@ -1,7 +1,5 @@
 package com.yeleman.fondasms;
 
-import com.yeleman.fondasms.service.EnabledChangedService;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -10,12 +8,9 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.pm.ResolveInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -24,9 +19,30 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
-import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
+
+import com.yeleman.fondasms.receiver.OutgoingMessagePoller;
+import com.yeleman.fondasms.service.EnabledChangedService;
+import com.yeleman.fondasms.task.CheckConnectivityTask;
+import com.yeleman.fondasms.task.HttpTask;
+import com.yeleman.fondasms.task.PollerTask;
+
+import org.apache.http.client.HttpClient;
+import org.apache.http.conn.scheme.PlainSocketFactory;
+import org.apache.http.conn.scheme.Scheme;
+import org.apache.http.conn.scheme.SchemeRegistry;
+import org.apache.http.conn.ssl.SSLSocketFactory;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+import org.apache.http.params.HttpProtocolParams;
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,24 +51,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-import org.apache.http.client.HttpClient;
-import org.apache.http.conn.scheme.PlainSocketFactory;
-import org.apache.http.conn.scheme.Scheme;
-import org.apache.http.conn.scheme.SchemeRegistry;
-import org.apache.http.conn.ssl.SSLSocketFactory;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.impl.conn.tsccm.ThreadSafeClientConnManager;
-import org.apache.http.params.BasicHttpParams;
-import org.apache.http.params.HttpConnectionParams;
-import org.apache.http.params.HttpParams;
-import org.apache.http.params.HttpProtocolParams;
-import com.yeleman.fondasms.receiver.OutgoingMessagePoller;
-import com.yeleman.fondasms.task.CheckConnectivityTask;
-import com.yeleman.fondasms.task.HttpTask;
-import com.yeleman.fondasms.task.PollerTask;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONException;
 
 public final class App extends Application {
 

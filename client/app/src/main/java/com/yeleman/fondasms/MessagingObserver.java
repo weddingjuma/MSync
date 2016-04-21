@@ -1,11 +1,11 @@
 package com.yeleman.fondasms;
 
-import com.yeleman.fondasms.service.CheckMessagingService;
 import android.content.Intent;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Handler;
-import java.util.List;
+
+import com.yeleman.fondasms.service.CheckMessagingService;
 
 public final class MessagingObserver extends ContentObserver {
 

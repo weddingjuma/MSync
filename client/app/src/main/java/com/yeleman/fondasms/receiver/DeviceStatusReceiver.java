@@ -3,9 +3,11 @@ package com.yeleman.fondasms.receiver;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import org.apache.http.message.BasicNameValuePair;
+
 import com.yeleman.fondasms.App;
 import com.yeleman.fondasms.task.HttpTask;
+
+import org.apache.http.message.BasicNameValuePair;
 
 public class DeviceStatusReceiver extends BroadcastReceiver
 {

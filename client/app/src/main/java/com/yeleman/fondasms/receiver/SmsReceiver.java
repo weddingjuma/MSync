@@ -5,11 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
-import java.util.ArrayList;
-import java.util.List;
+
 import com.yeleman.fondasms.App;
 import com.yeleman.fondasms.IncomingMessage;
 import com.yeleman.fondasms.IncomingSms;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SmsReceiver extends BroadcastReceiver {
 

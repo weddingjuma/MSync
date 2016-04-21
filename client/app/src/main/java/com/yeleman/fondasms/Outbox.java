@@ -6,6 +6,12 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+
+import com.yeleman.fondasms.receiver.DequeueOutgoingMessageReceiver;
+import com.yeleman.fondasms.task.HttpTask;
+
+import org.apache.http.message.BasicNameValuePair;
+
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -15,9 +21,6 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Set;
-import org.apache.http.message.BasicNameValuePair;
-import com.yeleman.fondasms.receiver.DequeueOutgoingMessageReceiver;
-import com.yeleman.fondasms.task.HttpTask;
 
 public class Outbox {
     private Map<Uri, OutgoingMessage> outgoingMessages = new HashMap<Uri, OutgoingMessage>();

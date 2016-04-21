@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
-import android.view.Menu;
+
 import com.yeleman.fondasms.App;
 import com.yeleman.fondasms.R;
 

@@ -3,10 +3,12 @@ package com.yeleman.fondasms.service;
 
 import android.app.IntentService;
 import android.content.Intent;
+
 import com.yeleman.fondasms.App;
 import com.yeleman.fondasms.IncomingMms;
 import com.yeleman.fondasms.IncomingSms;
 import com.yeleman.fondasms.MessagingUtils;
+
 import java.util.List;
 
 public class CheckMessagingService extends IntentService

@@ -1,9 +1,10 @@
 
 package com.yeleman.fondasms.task;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.message.BasicNameValuePair;
 import com.yeleman.fondasms.App;
+import com.yeleman.fondasms.HttpData;
+
+import org.apache.http.message.BasicNameValuePair;
 
 public class PollerTask extends HttpTask {
 
@@ -12,8 +13,8 @@ public class PollerTask extends HttpTask {
     }
 
     @Override
-    protected void onPostExecute(HttpResponse response) {
-        super.onPostExecute(response);
+    protected void onPostExecute(HttpData data) {
+        super.onPostExecute(data);
         app.markPollComplete();
     }
 

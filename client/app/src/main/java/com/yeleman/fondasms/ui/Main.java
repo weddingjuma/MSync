@@ -1,13 +1,11 @@
 package com.yeleman.fondasms.ui;
 
-import com.yeleman.fondasms.ui.Prefs;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
 import com.yeleman.fondasms.App;
-import com.yeleman.fondasms.ui.LogView;
 
 public class Main extends Activity {
     private App app;
