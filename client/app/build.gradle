@@ -22,8 +22,8 @@ android {
         applicationId "com.yeleman.fondasms"
         minSdkVersion 10
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
     }
 
     signingConfigs {
@@ -31,7 +31,7 @@ android {
             storeFile file("CERTIFICATE")
             storePassword System.getenv("KSTOREPWD")
             keyPassword System.getenv("KEYPWD")
-            keyAlias "fondasms"
+            keyAlias "fonda"
         }
     }
 
