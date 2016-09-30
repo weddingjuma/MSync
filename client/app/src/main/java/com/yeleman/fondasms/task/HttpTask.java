@@ -134,12 +134,17 @@ public class HttpTask extends BaseHttpTask {
         ConnectivityManager cm =
             (ConnectivityManager)app.getSystemService(App.CONNECTIVITY_SERVICE);
 
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        if (activeNetwork != null)
-        {
-            params.add(new BasicNameValuePair("network", "" + activeNetwork.getTypeName()));
-        }
+        try {
 
+            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+            if (activeNetwork != null)
+            {
+                params.add(new BasicNameValuePair("network", "" + activeNetwork.getTypeName()));
+            }
+
+        } catch (Exception e){
+            app.log("NetworkInfo " + e.toString());
+        }
         params.add(new BasicNameValuePair("log", logEntries));
 
         return super.doInBackground();

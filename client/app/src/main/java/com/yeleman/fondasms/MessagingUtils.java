@@ -4,6 +4,7 @@ package com.yeleman.fondasms;
 import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -125,6 +126,7 @@ public class MessagingUtils
     public List<IncomingMms> getMessagesInMmsInbox()
     {
         return getMessagesInMmsInbox(false);
+        //return [];
     }
 
     public synchronized List<IncomingMms> getMessagesInMmsInbox(boolean newMessagesOnly)
@@ -132,10 +134,8 @@ public class MessagingUtils
         // the M-Retrieve.conf messages are the 'actual' MMS messages
         String m_type = "" + MESSAGE_TYPE_RETRIEVE_CONF;
 
-        Cursor c = contentResolver.query(MMS_INBOX_URI,
-                new String[] {"_id", "ct_l", "date"},
-                "m_type = ? ", new String[] { m_type },
-                "_id desc limit 30");
+        Cursor c = contentResolver.query(MMS_INBOX_URI, new String[] {"_id", "ct_l", "date"},
+                "m_type = ? ", new String[] { m_type }, "_id desc limit 30");
 
         List<IncomingMms> messages = new ArrayList<IncomingMms>();
 

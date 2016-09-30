@@ -47,3 +47,5 @@ singlepack/*/build/
 singlepack/.idea/
 singlepack/.gradle/
 singlepack/local.properties
+
+.DS_Store

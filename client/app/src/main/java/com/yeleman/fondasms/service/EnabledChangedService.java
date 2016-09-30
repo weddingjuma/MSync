@@ -48,6 +48,7 @@ public class EnabledChangedService extends IntentService {
 
         if (app.isEnabled())
         {
+
             app.getMessagingObserver().register();
 
             telephony.listen(app.getCallListener(), PhoneStateListener.LISTEN_CALL_STATE);
@@ -55,6 +56,8 @@ public class EnabledChangedService extends IntentService {
             app.getDatabaseHelper().restorePendingMessages();
 
             app.getAmqpConsumer().startAsync();
+            app.log("OK...........");
+
         }
         else
         {

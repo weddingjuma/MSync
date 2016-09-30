@@ -2,6 +2,7 @@ package com.yeleman.fondasms.task;
 
 import android.os.AsyncTask;
 import android.os.Build;
+import android.util.Log;
 
 import com.yeleman.fondasms.App;
 import com.yeleman.fondasms.HttpData;
@@ -37,6 +38,8 @@ public class BaseHttpTask extends AsyncTask<String, Void, HttpData> {
     protected boolean useMultipartPost = false;
     protected HttpPost post;
     protected Throwable requestException;
+
+    public static final String LOG_NAME = "fondaSMS";
 
     public BaseHttpTask(App app, String url, BasicNameValuePair... paramsArr)
     {
@@ -159,7 +162,12 @@ public class BaseHttpTask extends AsyncTask<String, Void, HttpData> {
 
     @Override
     protected void onPostExecute(HttpData data) {
-        if (data.response != null)
+        if (data == null){
+            app.log("HTTP DATA is null");
+           // handleRequestException(requestException);
+           // handleFailure();
+        }
+        else if (data.response != null)
         {
             try
             {
@@ -186,13 +194,12 @@ public class BaseHttpTask extends AsyncTask<String, Void, HttpData> {
                 handleFailure();
             }
 
-//            try
-//            {
-//                response.getEntity().consumeContent();
-//            }
-//            catch (IOException ex)
-//            {
-//            }
+         /*
+           try {
+                response.getEntity().consumeContent();
+             } catch (IOException ex){
+             }
+            */
         }
         else
         {
