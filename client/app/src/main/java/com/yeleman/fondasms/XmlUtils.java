@@ -1,5 +1,7 @@
 package com.yeleman.fondasms;
 
+import android.os.Build;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -21,7 +23,13 @@ public class XmlUtils {
     public static Document parseResponse(String responseBody)
             throws IOException, ParserConfigurationException, SAXException {
         DocumentBuilder xmlBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-        InputStream responseStream = new ByteArrayInputStream(responseBody.getBytes(StandardCharsets.UTF_8));
+        byte[] responseBytes;
+        if (Build.VERSION.SDK_INT >= 19) {
+            responseBytes = responseBody.getBytes(StandardCharsets.UTF_8);
+        } else {
+            responseBytes = responseBody.getBytes("UTF-8");
+        }
+            InputStream responseStream = new ByteArrayInputStream(responseBytes);
         return xmlBuilder.parse(responseStream);
     }
 
