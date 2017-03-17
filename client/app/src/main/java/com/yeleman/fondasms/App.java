@@ -17,6 +17,7 @@ import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.text.SpannableStringBuilder;
@@ -427,30 +428,20 @@ public final class App extends Application {
     }
 
     public void setOutgoingMessageAlarm() {
-        AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,
-                0,
-                new Intent(this, OutgoingMessagePoller.class),
-                0);
-
-        alarm.cancel(pendingIntent);
-
-        int pollSeconds = getOutgoingPollSeconds();
-
-        if (isEnabled())
-        {
-            if (pollSeconds > 0) {
-                alarm.setRepeating(
-                        AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                        SystemClock.elapsedRealtime(),
-                        pollSeconds * 1000,
-                        pendingIntent);
-                log("Checking for outgoing messages every " + pollSeconds + " sec");
-            } else {
-                log("Not checking for outgoing messages.");
+        if (!isEnabled())
+            return; //TODO disable any previous recurring task
+        final Handler handler = new Handler();
+        final int pollSeconds = getOutgoingPollSeconds();
+        final Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                checkOutgoingMessages();
+                log("Again in " + pollSeconds + " sec");
+                handler.postDelayed(this, pollSeconds * 1000);
             }
-        }
+        };
+        log("Checking for outgoing messages every " + pollSeconds + " sec");
+        handler.post(runnable);
     }
 
     public String getDisplayString(String str) {
