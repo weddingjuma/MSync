@@ -443,7 +443,6 @@ public final class App extends Application {
             @Override
             public void run() {
                 checkOutgoingMessages();
-                log("Again in " + pollSeconds + " sec");
                 handler.postDelayed(this, pollSeconds * 1000);
             }
         };
