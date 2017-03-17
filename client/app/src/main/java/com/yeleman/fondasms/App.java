@@ -23,7 +23,6 @@ import android.preference.PreferenceManager;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
 
-import com.yeleman.fondasms.receiver.OutgoingMessagePoller;
 import com.yeleman.fondasms.service.EnabledChangedService;
 import com.yeleman.fondasms.task.CheckConnectivityTask;
 import com.yeleman.fondasms.task.HttpTask;
