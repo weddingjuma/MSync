@@ -173,6 +173,8 @@ public final class App extends Application {
     private CallListener callListener;
     private DatabaseHelper dbHelper;
     private AmqpConsumer amqpConsumer;
+    private Handler handler;
+    private Runnable outgoingPoll = null;
 
     private boolean connectivityError = false;
 
@@ -202,6 +204,8 @@ public final class App extends Application {
         dbHelper = new DatabaseHelper(this);
 
         amqpConsumer = new AmqpConsumer(this);
+
+        handler = new Handler();
 
         try
         {
@@ -428,11 +432,14 @@ public final class App extends Application {
     }
 
     public void setOutgoingMessageAlarm() {
+        if (outgoingPoll != null) {
+            handler.removeCallbacks(outgoingPoll);
+            outgoingPoll = null;
+        }
         if (!isEnabled())
-            return; //TODO disable any previous recurring task
-        final Handler handler = new Handler();
+            return;
         final int pollSeconds = getOutgoingPollSeconds();
-        final Runnable runnable = new Runnable() {
+        outgoingPoll = new Runnable() {
             @Override
             public void run() {
                 checkOutgoingMessages();
@@ -441,7 +448,7 @@ public final class App extends Application {
             }
         };
         log("Checking for outgoing messages every " + pollSeconds + " sec");
-        handler.post(runnable);
+        handler.post(outgoingPoll);
     }
 
     public String getDisplayString(String str) {
