@@ -17,12 +17,12 @@ import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
 
-import com.yeleman.fondasms.receiver.OutgoingMessagePoller;
 import com.yeleman.fondasms.service.EnabledChangedService;
 import com.yeleman.fondasms.task.CheckConnectivityTask;
 import com.yeleman.fondasms.task.HttpTask;
@@ -172,6 +172,8 @@ public final class App extends Application {
     private CallListener callListener;
     private DatabaseHelper dbHelper;
     private AmqpConsumer amqpConsumer;
+    private Handler handler;
+    private Runnable outgoingPoll = null;
 
     private boolean connectivityError = false;
 
@@ -201,6 +203,8 @@ public final class App extends Application {
         dbHelper = new DatabaseHelper(this);
 
         amqpConsumer = new AmqpConsumer(this);
+
+        handler = new Handler();
 
         try
         {
@@ -427,30 +431,22 @@ public final class App extends Application {
     }
 
     public void setOutgoingMessageAlarm() {
-        AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,
-                0,
-                new Intent(this, OutgoingMessagePoller.class),
-                0);
-
-        alarm.cancel(pendingIntent);
-
-        int pollSeconds = getOutgoingPollSeconds();
-
-        if (isEnabled())
-        {
-            if (pollSeconds > 0) {
-                alarm.setRepeating(
-                        AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                        SystemClock.elapsedRealtime(),
-                        pollSeconds * 1000,
-                        pendingIntent);
-                log("Checking for outgoing messages every " + pollSeconds + " sec");
-            } else {
-                log("Not checking for outgoing messages.");
-            }
+        if (outgoingPoll != null) {
+            handler.removeCallbacks(outgoingPoll);
+            outgoingPoll = null;
         }
+        if (!isEnabled())
+            return;
+        final int pollSeconds = getOutgoingPollSeconds();
+        outgoingPoll = new Runnable() {
+            @Override
+            public void run() {
+                checkOutgoingMessages();
+                handler.postDelayed(this, pollSeconds * 1000);
+            }
+        };
+        log("Checking for outgoing messages every " + pollSeconds + " sec");
+        handler.post(outgoingPoll);
     }
 
     public String getDisplayString(String str) {
