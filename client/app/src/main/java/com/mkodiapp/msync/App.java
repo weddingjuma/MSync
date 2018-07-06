@@ -54,7 +54,7 @@ import java.util.Queue;
 
 public final class App extends Application {
 
-    public static final String TAG = "FondaSMS-Log: %s";
+    public static final String TAG = "MSync-Log: %s";
     public static final String ACTION_OUTGOING = "outgoing";
     public static final String ACTION_INCOMING = "incoming";
     public static final String ACTION_FORWARD_SENT = "forward_sent";
@@ -420,7 +420,7 @@ public final class App extends Application {
                 pollActive = true;
                 new PollerTask(this).execute();
             } else {
-                log("Can't check messages; server URL not set");
+                log("Can't find server; server URL not set");
             }
         }
         else
@@ -445,7 +445,7 @@ public final class App extends Application {
                 handler.postDelayed(this, pollSeconds * 1000);
             }
         };
-        log("Checking for outgoing messages every " + pollSeconds + " sec");
+        log("Polling server every " + pollSeconds + " sec");
         handler.post(outgoingPoll);
     }
 
@@ -495,7 +495,7 @@ public final class App extends Application {
 
     public int getOutgoingPollSeconds()
     {
-        return tryGetIntegerSetting("outgoing_interval", 0);
+        return tryGetIntegerSetting("outgoing_interval", 5);
     }
 
     public boolean isEnabled()

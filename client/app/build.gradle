@@ -31,7 +31,7 @@ android {
             storeFile file("CERTIFICATE")
             storePassword System.getenv("KSTOREPWD")
             keyPassword System.getenv("KEYPWD")
-            keyAlias "fonda"
+            keyAlias "msync"
         }
     }
 

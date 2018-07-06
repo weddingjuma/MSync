@@ -32,13 +32,14 @@
             android:password="true"
     ></EditTextPreference>
 
-    <ListPreference
-            android:key="outgoing_interval"
-            android:title="Poll interval"
-            android:defaultValue="30"
-            android:entries="@array/check_intervals"
-            android:entryValues="@array/check_intervals_values"
-    ></ListPreference>
+    <!--<ListPreference-->
+            <!--android:key="outgoing_interval"-->
+            <!--android:title="Poll interval"-->
+            <!--android:defaultValue="5"-->
+        <!--android:shouldDisableView="true"-->
+            <!--android:entries="@array/check_intervals"-->
+            <!--android:entryValues="@array/check_intervals_values"-->
+    <!--&gt;</ListPreference>-->
 
     </PreferenceCategory>
 
@@ -58,53 +59,53 @@
             android:summaryOn="MSync will notify server when phone receives an incoming call"
     ></CheckBoxPreference>
 
-    <PreferenceScreen
-        android:key="send_limit"
-        android:title="SMS rate limit"
-        android:summary="..."
-    >
-        <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.mkodiapp.msync"
-            android:targetClass="com.mkodiapp.msync.ui.ExpansionPacks" />
-    </PreferenceScreen>
+    <!--<PreferenceScreen-->
+        <!--android:key="send_limit"-->
+        <!--android:title="SMS rate limit"-->
+        <!--android:summary="..."-->
+    <!--&gt;-->
+        <!--<intent-->
+            <!--android:action="android.intent.action.MAIN"-->
+            <!--android:targetPackage="com.mkodiapp.msync"-->
+            <!--android:targetClass="com.mkodiapp.msync.ui.ExpansionPacks" />-->
+    <!--</PreferenceScreen>-->
 
-    <CheckBoxPreference
-            android:key="forward_sent"
-            android:title="Forward sent messages"
-            android:summaryOff="SMS sent from Messaging app will not be forwarded to server"
-            android:summaryOn="SMS sent from Messaging app will be forwarded to server"
-    ></CheckBoxPreference>
+    <!--<CheckBoxPreference-->
+            <!--android:key="forward_sent"-->
+            <!--android:title="Forward sent messages"-->
+            <!--android:summaryOff="SMS sent from Messaging app will not be forwarded to server"-->
+            <!--android:summaryOn="SMS sent from Messaging app will be forwarded to server"-->
+    <!--&gt;</CheckBoxPreference>-->
 
-    <PreferenceScreen
-        android:key="ignored_numbers"
-        android:title="Ignored phones"
-        android:summary="Configure the phone numbers that MSync will ignore"
-    >
-       <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.mkodiapp.msync"
-            android:targetClass="com.mkodiapp.msync.ui.IgnoredPhoneNumbers" />
-    </PreferenceScreen>
+    <!--<PreferenceScreen-->
+        <!--android:key="ignored_numbers"-->
+        <!--android:title="Ignored phones"-->
+        <!--android:summary="Configure the phone numbers that MSync will ignore"-->
+    <!--&gt;-->
+       <!--<intent-->
+            <!--android:action="android.intent.action.MAIN"-->
+            <!--android:targetPackage="com.mkodiapp.msync"-->
+            <!--android:targetClass="com.mkodiapp.msync.ui.IgnoredPhoneNumbers" />-->
+    <!--</PreferenceScreen>-->
 
-    <CheckBoxPreference
-            android:key="test_mode"
-            android:title="Test mode"
-            android:summaryOff="Test mode is off (MSync forwards all SMS)"
-            android:summaryOn="Test mode is on (MSync only forwards SMS to/from specific phones)"
-    ></CheckBoxPreference>
+    <!--<CheckBoxPreference-->
+            <!--android:key="test_mode"-->
+            <!--android:title="Test mode"-->
+            <!--android:summaryOff="Test mode is off (MSync forwards all SMS)"-->
+            <!--android:summaryOn="Test mode is on (MSync only forwards SMS to/from specific phones)"-->
+    <!--&gt;</CheckBoxPreference>-->
 
-    <PreferenceScreen
-        android:key="test_numbers"
-        android:title="Sender phones"
-        android:dependency="test_mode"
-        android:summary="Configure the phone numbers that MSync will handle"
-    >
-       <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.mkodiapp.msync"
-            android:targetClass="com.mkodiapp.msync.ui.TestPhoneNumbers" />
-    </PreferenceScreen>
+    <!--<PreferenceScreen-->
+        <!--android:key="test_numbers"-->
+        <!--android:title="Sender phones"-->
+        <!--android:dependency="test_mode"-->
+        <!--android:summary="Configure the phone numbers that MSync will handle"-->
+    <!--&gt;-->
+       <!--<intent-->
+            <!--android:action="android.intent.action.MAIN"-->
+            <!--android:targetPackage="com.mkodiapp.msync"-->
+            <!--android:targetClass="com.mkodiapp.msync.ui.TestPhoneNumbers" />-->
+    <!--</PreferenceScreen>-->
 
     </PreferenceCategory>
 
@@ -129,89 +130,89 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="AMQP Settings (Real-Time Connection)">
+    <!--<PreferenceCategory android:title="AMQP Settings (Real-Time Connection)">-->
 
-    <CheckBoxPreference
-            android:key="amqp_enabled"
-            android:title="Enable AMQP"
-            android:summaryOff="AMQP is disabled"
-            android:summaryOn="AMQP is enabled"
-    ></CheckBoxPreference>
+    <!--<CheckBoxPreference-->
+            <!--android:key="amqp_enabled"-->
+            <!--android:title="Enable AMQP"-->
+            <!--android:summaryOff="AMQP is disabled"-->
+            <!--android:summaryOn="AMQP is enabled"-->
+    <!--&gt;</CheckBoxPreference>-->
 
-    <EditTextPreference
-            android:key="amqp_host"
-            android:title="AMQP Host"
-            android:inputType="textUri"
-            android:defaultValue=""
-            android:dependency="amqp_enabled"
-    ></EditTextPreference>
+    <!--<EditTextPreference-->
+            <!--android:key="amqp_host"-->
+            <!--android:title="AMQP Host"-->
+            <!--android:inputType="textUri"-->
+            <!--android:defaultValue=""-->
+            <!--android:dependency="amqp_enabled"-->
+    <!--&gt;</EditTextPreference>-->
 
-    <EditTextPreference
-            android:key="amqp_port"
-            android:title="AMQP Port"
-            android:inputType="number"
-            android:defaultValue="5672"
-            android:dependency="amqp_enabled"
-    ></EditTextPreference>
+    <!--<EditTextPreference-->
+            <!--android:key="amqp_port"-->
+            <!--android:title="AMQP Port"-->
+            <!--android:inputType="number"-->
+            <!--android:defaultValue="5672"-->
+            <!--android:dependency="amqp_enabled"-->
+    <!--&gt;</EditTextPreference>-->
 
-    <EditTextPreference
-            android:key="amqp_vhost"
-            android:title="AMQP Virtual Host"
-            android:inputType="text"
-            android:defaultValue="/"
-            android:dependency="amqp_enabled"
-    ></EditTextPreference>
+    <!--<EditTextPreference-->
+            <!--android:key="amqp_vhost"-->
+            <!--android:title="AMQP Virtual Host"-->
+            <!--android:inputType="text"-->
+            <!--android:defaultValue="/"-->
+            <!--android:dependency="amqp_enabled"-->
+    <!--&gt;</EditTextPreference>-->
 
-    <CheckBoxPreference
-            android:key="amqp_ssl"
-            android:title="AMQP SSL"
-            android:summaryOff="Off (Plain text)"
-            android:summaryOn="On (Encrypted)"
-            android:dependency="amqp_enabled"
-    ></CheckBoxPreference>
+    <!--<CheckBoxPreference-->
+            <!--android:key="amqp_ssl"-->
+            <!--android:title="AMQP SSL"-->
+            <!--android:summaryOff="Off (Plain text)"-->
+            <!--android:summaryOn="On (Encrypted)"-->
+            <!--android:dependency="amqp_enabled"-->
+    <!--&gt;</CheckBoxPreference>-->
 
-    <EditTextPreference
-            android:key="amqp_user"
-            android:title="AMQP User"
-            android:defaultValue=""
-            android:dependency="amqp_enabled"
-    ></EditTextPreference>
+    <!--<EditTextPreference-->
+            <!--android:key="amqp_user"-->
+            <!--android:title="AMQP User"-->
+            <!--android:defaultValue=""-->
+            <!--android:dependency="amqp_enabled"-->
+    <!--&gt;</EditTextPreference>-->
 
-    <EditTextPreference
-            android:key="amqp_password"
-            android:title="AMQP Password"
-            android:defaultValue=""
-            android:password="true"
-            android:dependency="amqp_enabled"
-    ></EditTextPreference>
+    <!--<EditTextPreference-->
+            <!--android:key="amqp_password"-->
+            <!--android:title="AMQP Password"-->
+            <!--android:defaultValue=""-->
+            <!--android:password="true"-->
+            <!--android:dependency="amqp_enabled"-->
+    <!--&gt;</EditTextPreference>-->
 
-    <EditTextPreference
-            android:key="amqp_queue"
-            android:title="AMQP Queue Name"
-            android:defaultValue=""
-            android:dependency="amqp_enabled"
-    ></EditTextPreference>
+    <!--<EditTextPreference-->
+            <!--android:key="amqp_queue"-->
+            <!--android:title="AMQP Queue Name"-->
+            <!--android:defaultValue=""-->
+            <!--android:dependency="amqp_enabled"-->
+    <!--&gt;</EditTextPreference>-->
 
-    <EditTextPreference
-            android:key="amqp_heartbeat"
-            android:title="AMQP Heartbeat (sec)"
-            android:inputType="number"
-            android:defaultValue="60"
-            android:dependency="amqp_enabled"
-    ></EditTextPreference>
+    <!--<EditTextPreference-->
+            <!--android:key="amqp_heartbeat"-->
+            <!--android:title="AMQP Heartbeat (sec)"-->
+            <!--android:inputType="number"-->
+            <!--android:defaultValue="60"-->
+            <!--android:dependency="amqp_enabled"-->
+    <!--&gt;</EditTextPreference>-->
 
-    </PreferenceCategory>
+    <!--</PreferenceCategory>-->
 
-    <PreferenceCategory android:title="Help">
-    <PreferenceScreen
-            android:key="help"
-            android:title="About MSync"
-        >
-       <intent
-            android:action="android.intent.action.MAIN"
-            android:targetPackage="com.mkodiapp.msync"
-            android:targetClass="com.mkodiapp.msync.ui.Help" />
-    </PreferenceScreen>
-    </PreferenceCategory>
+    <!--<PreferenceCategory android:title="Help">-->
+    <!--<PreferenceScreen-->
+            <!--android:key="help"-->
+            <!--android:title="About MSync"-->
+        <!--&gt;-->
+       <!--<intent-->
+            <!--android:action="android.intent.action.MAIN"-->
+            <!--android:targetPackage="com.mkodiapp.msync"-->
+            <!--android:targetClass="com.mkodiapp.msync.ui.Help" />-->
+    <!--</PreferenceScreen>-->
+    <!--</PreferenceCategory>-->
 
 </PreferenceScreen>
