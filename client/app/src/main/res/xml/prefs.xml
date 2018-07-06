@@ -12,12 +12,12 @@
 
     <PreferenceCategory android:title="Server Settings">
 
-    <EditTextPreference
-            android:key="server_url"
-            android:title="Server URL"
-            android:inputType="textUri"
-            android:defaultValue=""
-    ></EditTextPreference>
+    <!--<EditTextPreference-->
+            <!--android:key="server_url"-->
+            <!--android:title="Server URL"-->
+            <!--android:inputType="textUri"-->
+            <!--android:defaultValue=""-->
+    <!--&gt;</EditTextPreference>-->
 
     <EditTextPreference
             android:key="phone_number"

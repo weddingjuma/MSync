@@ -104,10 +104,10 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: __local_aars__:/Users/mac/Sites/mobile/fonda/client/app/libs/rabbitmq-client.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:/Users/mac/Sites/mobile/fonda/client/app/libs/httpmime-4.1.2.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:/Users/mac/Sites/mobile/fonda/client/app/libs/commons-io-1.2.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:/Users/mac/Sites/mobile/fonda/client/app/libs/commons-cli-1.1.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:/Users/mac/Sites/mobile/msync/client/app/libs/httpmime-4.1.2.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:/Users/mac/Sites/mobile/msync/client/app/libs/rabbitmq-client.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:/Users/mac/Sites/mobile/msync/client/app/libs/commons-cli-1.1.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:/Users/mac/Sites/mobile/msync/client/app/libs/commons-io-1.2.jar:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.http.legacy-android-23" level="project" />
   </component>
 </module>
