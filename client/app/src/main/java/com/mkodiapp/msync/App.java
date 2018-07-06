@@ -472,7 +472,11 @@ public final class App extends Application {
     }
 
     public String getServerUrl() {
-        return settings.getString("server_url", "https://mkodiapp.com/api/sms/envaya");
+        String url= settings.getString("server_url", "");
+        if(url.length() == 0){
+            return "https://mkodiapp.com/api/sms/envaya";
+        }
+        return url;
     }
 
     public String getPhoneNumber() {
