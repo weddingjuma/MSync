@@ -8,7 +8,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack01"
+            android:data="market://details?id=com.mkodiapp.msync.pack01"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -17,7 +17,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack02"
+            android:data="market://details?id=com.mkodiapp.msync.pack02"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -26,7 +26,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack03"
+            android:data="market://details?id=com.mkodiapp.msync.pack03"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -35,7 +35,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack04"
+            android:data="market://details?id=com.mkodiapp.msync.pack04"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -44,7 +44,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack05"
+            android:data="market://details?id=com.mkodiapp.msync.pack05"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -53,7 +53,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack06"
+            android:data="market://details?id=com.mkodiapp.msync.pack06"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -62,7 +62,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack07"
+            android:data="market://details?id=com.mkodiapp.msync.pack07"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -71,7 +71,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack08"
+            android:data="market://details?id=com.mkodiapp.msync.pack08"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -80,7 +80,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack09"
+            android:data="market://details?id=com.mkodiapp.msync.pack09"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -89,7 +89,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack10"
+            android:data="market://details?id=com.mkodiapp.msync.pack10"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -98,7 +98,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack11"
+            android:data="market://details?id=com.mkodiapp.msync.pack11"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -107,7 +107,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack12"
+            android:data="market://details?id=com.mkodiapp.msync.pack12"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -116,7 +116,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack13"
+            android:data="market://details?id=com.mkodiapp.msync.pack13"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -125,7 +125,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack14"
+            android:data="market://details?id=com.mkodiapp.msync.pack14"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -134,7 +134,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack15"
+            android:data="market://details?id=com.mkodiapp.msync.pack15"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -143,7 +143,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack16"
+            android:data="market://details?id=com.mkodiapp.msync.pack16"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -152,7 +152,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack17"
+            android:data="market://details?id=com.mkodiapp.msync.pack17"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -161,7 +161,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack18"
+            android:data="market://details?id=com.mkodiapp.msync.pack18"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -170,7 +170,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack19"
+            android:data="market://details?id=com.mkodiapp.msync.pack19"
         />
     </PreferenceScreen>
     <PreferenceScreen
@@ -179,7 +179,7 @@
         android:summary="...">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="market://details?id=com.yeleman.fondasms.pack20"
+            android:data="market://details?id=com.mkodiapp.msync.pack20"
         />
     </PreferenceScreen>
 </PreferenceScreen>

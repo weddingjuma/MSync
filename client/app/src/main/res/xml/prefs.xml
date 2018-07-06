@@ -4,7 +4,7 @@
 
     <CheckBoxPreference
             android:key="enabled"
-            android:title="Enable fondaSMS"
+            android:title="Enable MSync"
             android:defaultValue='false'
             android:summaryOn="New messages will be forwarded between phone and server"
             android:summaryOff="New messages will not be forwarded between phone and server"
@@ -54,8 +54,8 @@
     <CheckBoxPreference
             android:key="call_notifications"
             android:title="Call notifications"
-            android:summaryOff="fondaSMS will not notify server when phone receives an incoming call"
-            android:summaryOn="fondaSMS will notify server when phone receives an incoming call"
+            android:summaryOff="MSync will not notify server when phone receives an incoming call"
+            android:summaryOn="MSync will notify server when phone receives an incoming call"
     ></CheckBoxPreference>
 
     <PreferenceScreen
@@ -65,8 +65,8 @@
     >
         <intent
             android:action="android.intent.action.MAIN"
-            android:targetPackage="com.yeleman.fondasms"
-            android:targetClass="com.yeleman.fondasms.ui.ExpansionPacks" />
+            android:targetPackage="com.mkodiapp.msync"
+            android:targetClass="com.mkodiapp.msync.ui.ExpansionPacks" />
     </PreferenceScreen>
 
     <CheckBoxPreference
@@ -79,31 +79,31 @@
     <PreferenceScreen
         android:key="ignored_numbers"
         android:title="Ignored phones"
-        android:summary="Configure the phone numbers that fondaSMS will ignore"
+        android:summary="Configure the phone numbers that MSync will ignore"
     >
        <intent
             android:action="android.intent.action.MAIN"
-            android:targetPackage="com.yeleman.fondasms"
-            android:targetClass="com.yeleman.fondasms.ui.IgnoredPhoneNumbers" />
+            android:targetPackage="com.mkodiapp.msync"
+            android:targetClass="com.mkodiapp.msync.ui.IgnoredPhoneNumbers" />
     </PreferenceScreen>
 
     <CheckBoxPreference
             android:key="test_mode"
             android:title="Test mode"
-            android:summaryOff="Test mode is off (fondaSMS forwards all SMS)"
-            android:summaryOn="Test mode is on (fondaSMS only forwards SMS to/from specific phones)"
+            android:summaryOff="Test mode is off (MSync forwards all SMS)"
+            android:summaryOn="Test mode is on (MSync only forwards SMS to/from specific phones)"
     ></CheckBoxPreference>
 
     <PreferenceScreen
         android:key="test_numbers"
         android:title="Sender phones"
         android:dependency="test_mode"
-        android:summary="Configure the phone numbers that fondaSMS will handle"
+        android:summary="Configure the phone numbers that MSync will handle"
     >
        <intent
             android:action="android.intent.action.MAIN"
-            android:targetPackage="com.yeleman.fondasms"
-            android:targetClass="com.yeleman.fondasms.ui.TestPhoneNumbers" />
+            android:targetPackage="com.mkodiapp.msync"
+            android:targetClass="com.mkodiapp.msync.ui.TestPhoneNumbers" />
     </PreferenceScreen>
 
     </PreferenceCategory>
@@ -205,12 +205,12 @@
     <PreferenceCategory android:title="Help">
     <PreferenceScreen
             android:key="help"
-            android:title="About fondaSMS"
+            android:title="About MSync"
         >
        <intent
             android:action="android.intent.action.MAIN"
-            android:targetPackage="com.yeleman.fondasms"
-            android:targetClass="com.yeleman.fondasms.ui.Help" />
+            android:targetPackage="com.mkodiapp.msync"
+            android:targetClass="com.mkodiapp.msync.ui.Help" />
     </PreferenceScreen>
     </PreferenceCategory>
 

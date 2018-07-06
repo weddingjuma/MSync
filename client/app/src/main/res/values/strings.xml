@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">fondaSMS</string>
-    <string name="running">fondaSMS running</string>
-    <string name="disabled">fondaSMS disabled</string>
-    <string name="started">fondaSMS started.</string>
-    <string name="stopped">fondaSMS stopped.</string>
-    <string name="log_view_title">fondaSMS : Log View</string>
-    <string name="add_phone_title">fondaSMS : Add Phone</string>
-    <string name="expansion_packs_title">fondaSMS : SMS Rate Limit</string>
-    <string name="help_title">fondaSMS : Help</string>
-    <string name='test_phone_numbers_title'>fondaSMS : Test Phone Numbers</string>
-    <string name='ignored_phone_numbers_title'>fondaSMS : Ignored Phone Numbers</string>
-    <string name='forward_saved_title'>fondaSMS : Forward Saved Messages</string>
-    <string name='pending_messages_title'>fondaSMS : Pending Messages</string>
-    <string name='settings_title'>fondaSMS : Settings</string>
+    <string name="app_name">MSync</string>
+    <string name="running">MSync running</string>
+    <string name="disabled">MSync disabled</string>
+    <string name="started">MSync started.</string>
+    <string name="stopped">MSync stopped.</string>
+    <string name="log_view_title">MSync : Log View</string>
+    <string name="add_phone_title">MSync : Add Phone</string>
+    <string name="expansion_packs_title">MSync : SMS Rate Limit</string>
+    <string name="help_title">MSync : Help</string>
+    <string name='test_phone_numbers_title'>MSync : Test Phone Numbers</string>
+    <string name='ignored_phone_numbers_title'>MSync : Ignored Phone Numbers</string>
+    <string name='forward_saved_title'>MSync : Forward Saved Messages</string>
+    <string name='pending_messages_title'>MSync : Pending Messages</string>
+    <string name='settings_title'>MSync : Settings</string>
     <string name="settings">Settings</string>
     <string name="test">Test Connection</string>
     <string name="check_now">Check Messages</string>
@@ -22,11 +22,11 @@
     <string name="retry_now">Retry</string>
     <string name="forward_saved">Fwd Saved...</string>
     <string name='service_started'>New messages will be forwarded to server</string>
-    <string name='test_phone_numbers'>When running fondaSMS in Test Mode,
-fondaSMS will only forward SMS messages from the phone numbers
+    <string name='test_phone_numbers'>When running MSync in Test Mode,
+MSync will only forward SMS messages from the phone numbers
 listed below. (Incoming SMS messages from other phone numbers will be saved
 in the normal Messaging inbox.)</string>
     <string name='ignored_phone_numbers'>
-fondaSMS will ignore SMS messages from the phone numbers listed below.
+MSync will ignore SMS messages from the phone numbers listed below.
 Incoming messages from these senders will be saved in the normal Messaging inbox.</string>
 </resources>

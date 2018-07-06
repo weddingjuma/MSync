@@ -19,7 +19,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.yeleman.fondasms"
+        applicationId "com.mkodiapp.msync"
         minSdkVersion 10
         targetSdkVersion 23
         versionCode 2

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.yeleman.fondasms">
+      package="com.mkodiapp.msync">
 
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
@@ -17,51 +17,51 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
-    <application android:name="com.yeleman.fondasms.App"
+    <application android:name="com.mkodiapp.msync.App"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name">
 
-        <activity android:name="com.yeleman.fondasms.ui.Main" android:label="@string/app_name" android:noHistory="true">
+        <activity android:name="com.mkodiapp.msync.ui.Main" android:label="@string/app_name" android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="com.yeleman.fondasms.ui.LogView" android:label="@string/log_view_title" />
-        <activity android:name="com.yeleman.fondasms.ui.Help" android:label="@string/help_title" />
-        <activity android:name="com.yeleman.fondasms.ui.TestPhoneNumbers" android:label="@string/test_phone_numbers_title" />
-        <activity android:name="com.yeleman.fondasms.ui.IgnoredPhoneNumbers" android:label="@string/ignored_phone_numbers_title" />
-        <activity android:name="com.yeleman.fondasms.ui.MessagingSmsInbox" android:label="@string/forward_saved_title" />
-        <activity android:name="com.yeleman.fondasms.ui.MessagingMmsInbox" android:label="@string/forward_saved_title" />
-        <activity android:name="com.yeleman.fondasms.ui.MessagingSentSms" android:label="@string/forward_saved_title" />
-        <activity android:name="com.yeleman.fondasms.ui.PendingMessages" android:label="@string/pending_messages_title" />
-        <activity android:name="com.yeleman.fondasms.ui.Prefs" android:label="@string/settings_title" />
-        <activity android:name="com.yeleman.fondasms.ui.ExpansionPacks" android:label="..." />
-        <receiver android:name="com.yeleman.fondasms.receiver.SmsReceiver">
+        <activity android:name="com.mkodiapp.msync.ui.LogView" android:label="@string/log_view_title" />
+        <activity android:name="com.mkodiapp.msync.ui.Help" android:label="@string/help_title" />
+        <activity android:name="com.mkodiapp.msync.ui.TestPhoneNumbers" android:label="@string/test_phone_numbers_title" />
+        <activity android:name="com.mkodiapp.msync.ui.IgnoredPhoneNumbers" android:label="@string/ignored_phone_numbers_title" />
+        <activity android:name="com.mkodiapp.msync.ui.MessagingSmsInbox" android:label="@string/forward_saved_title" />
+        <activity android:name="com.mkodiapp.msync.ui.MessagingMmsInbox" android:label="@string/forward_saved_title" />
+        <activity android:name="com.mkodiapp.msync.ui.MessagingSentSms" android:label="@string/forward_saved_title" />
+        <activity android:name="com.mkodiapp.msync.ui.PendingMessages" android:label="@string/pending_messages_title" />
+        <activity android:name="com.mkodiapp.msync.ui.Prefs" android:label="@string/settings_title" />
+        <activity android:name="com.mkodiapp.msync.ui.ExpansionPacks" android:label="..." />
+        <receiver android:name="com.mkodiapp.msync.receiver.SmsReceiver">
             <intent-filter android:priority="101">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.yeleman.fondasms.receiver.OutgoingSmsReceiver">
+        <receiver android:name="com.mkodiapp.msync.receiver.OutgoingSmsReceiver">
             <intent-filter>
-                <action android:name="com.yeleman.fondasms.OUTGOING_SMS" />
+                <action android:name="com.mkodiapp.msync.OUTGOING_SMS" />
                 <data android:scheme="content" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.yeleman.fondasms.receiver.MessageStatusNotifier" android:exported="true">
+        <receiver android:name="com.mkodiapp.msync.receiver.MessageStatusNotifier" android:exported="true">
             <intent-filter>
-                <action android:name="com.yeleman.fondasms.MESSAGE_STATUS" />
+                <action android:name="com.mkodiapp.msync.MESSAGE_STATUS" />
                 <data android:scheme="content" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.yeleman.fondasms.receiver.NudgeReceiver" android:exported="true">
+        <receiver android:name="com.mkodiapp.msync.receiver.NudgeReceiver" android:exported="true">
             <intent-filter>
-                <action android:name="com.yeleman.fondasms.NUDGE" />
+                <action android:name="com.mkodiapp.msync.NUDGE" />
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
@@ -69,33 +69,33 @@
 
         <!-- we don't really use message delivery notifications yet... -->
 
-        <receiver android:name="com.yeleman.fondasms.receiver.MessageDeliveryNotifier" android:exported="true">
+        <receiver android:name="com.mkodiapp.msync.receiver.MessageDeliveryNotifier" android:exported="true">
             <intent-filter>
-                <action android:name="com.yeleman.fondasms.MESSAGE_DELIVERY" />
+                <action android:name="com.mkodiapp.msync.MESSAGE_DELIVERY" />
                 <data android:scheme="content" />
             </intent-filter>
         </receiver>
 
 
-        <receiver android:name="com.yeleman.fondasms.receiver.DequeueOutgoingMessageReceiver">
+        <receiver android:name="com.mkodiapp.msync.receiver.DequeueOutgoingMessageReceiver">
         </receiver>
 
-        <receiver android:name="com.yeleman.fondasms.receiver.OutgoingMessageTimeout">
+        <receiver android:name="com.mkodiapp.msync.receiver.OutgoingMessageTimeout">
         </receiver>
 
-        <receiver android:name="com.yeleman.fondasms.receiver.OutgoingMessageRetry">
+        <receiver android:name="com.mkodiapp.msync.receiver.OutgoingMessageRetry">
         </receiver>
 
-        <receiver android:name="com.yeleman.fondasms.receiver.IncomingMessageRetry">
+        <receiver android:name="com.mkodiapp.msync.receiver.IncomingMessageRetry">
         </receiver>
 
-        <receiver android:name="com.yeleman.fondasms.receiver.ReenableWifiReceiver">
+        <receiver android:name="com.mkodiapp.msync.receiver.ReenableWifiReceiver">
         </receiver>
 
-        <receiver android:name="com.yeleman.fondasms.receiver.StartAmqpConsumer">
+        <receiver android:name="com.mkodiapp.msync.receiver.StartAmqpConsumer">
         </receiver>
 
-        <receiver android:name="com.yeleman.fondasms.receiver.ExpansionPackInstallReceiver">
+        <receiver android:name="com.mkodiapp.msync.receiver.ExpansionPackInstallReceiver">
             <intent-filter>
                  <action android:name="android.intent.action.PACKAGE_ADDED" />
                  <action android:name="android.intent.action.PACKAGE_REMOVED" />
@@ -104,13 +104,13 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.yeleman.fondasms.receiver.ConnectivityChangeReceiver" >
+        <receiver android:name="com.mkodiapp.msync.receiver.ConnectivityChangeReceiver" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.yeleman.fondasms.receiver.DeviceStatusReceiver">
+        <receiver android:name="com.mkodiapp.msync.receiver.DeviceStatusReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
                 <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
@@ -119,19 +119,19 @@
             </intent-filter>
         </receiver>
 
-        <service android:name="com.yeleman.fondasms.service.CheckMessagingService">
+        <service android:name="com.mkodiapp.msync.service.CheckMessagingService">
         </service>
 
-        <service android:name="com.yeleman.fondasms.service.EnabledChangedService">
+        <service android:name="com.mkodiapp.msync.service.EnabledChangedService">
         </service>
 
-        <service android:name="com.yeleman.fondasms.service.ForegroundService">
+        <service android:name="com.mkodiapp.msync.service.ForegroundService">
         </service>
 
-        <service android:name="com.yeleman.fondasms.service.AmqpConsumerService">
+        <service android:name="com.mkodiapp.msync.service.AmqpConsumerService">
         </service>
 
-        <service android:name="com.yeleman.fondasms.service.AmqpHeartbeatService">
+        <service android:name="com.mkodiapp.msync.service.AmqpHeartbeatService">
         </service>
     </application>
 </manifest>
