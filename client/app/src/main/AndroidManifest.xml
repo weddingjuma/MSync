@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.mkodiapp.msync">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mkodiapp.msync">
 
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
@@ -15,8 +16,9 @@
     <uses-permission android:name="android.permission.RECEIVE_MMS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <!--android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"-->
     <application android:name="com.mkodiapp.msync.App"
         android:allowBackup="true"
         android:icon="@drawable/icon"

@@ -17,6 +17,5 @@
           android:title="@string/retry_now" />          
     <item android:id="@+id/pending"
             android:icon="@drawable/ic_menu_dialog"
-          android:title="@string/pending" />                    
-          
+          android:title="@string/pending" />
 </menu>
