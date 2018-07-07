@@ -474,7 +474,7 @@ public final class App extends Application {
     public String getServerUrl() {
         String url= settings.getString("server_url", "");
         if(url.length() == 0){
-            return "https://mkodiapp.com/api/sms/envaya";
+            return "https://mkodiapp.com/api/sms/msync";
         }
         return url;
     }

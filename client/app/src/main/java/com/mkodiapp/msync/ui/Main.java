@@ -68,7 +68,7 @@ public class Main extends Activity implements EasyPermissions.PermissionCallback
     @Override
     public void onPermissionsGranted(int requestCode, List<String> list) {
         // Some permissions have been granted
-        // ...
+        startActivity(new Intent(this, LogView.class));
     }
 
     @Override
