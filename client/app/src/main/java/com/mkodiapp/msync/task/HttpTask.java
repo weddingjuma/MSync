@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 
 import com.mkodiapp.msync.App;
 import com.mkodiapp.msync.Base64Coder;
@@ -236,6 +237,8 @@ public class HttpTask extends BaseHttpTask {
     protected void handleResponse(HttpData data) throws Exception {
 
         String contentType = getContentType(data);
+
+        Log.e("Server Response",contentType);
 
         if (contentType.startsWith("application/json"))
         {
