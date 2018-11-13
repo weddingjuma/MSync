@@ -10,25 +10,26 @@
             android:summaryOff="New messages will not be forwarded between phone and server"
     ></CheckBoxPreference>
 
-    <PreferenceCategory android:title="Server Settings">
+    <PreferenceCategory android:title="Server Credentials">
 
     <!--<EditTextPreference-->
             <!--android:key="server_url"-->
             <!--android:title="Server URL"-->
             <!--android:inputType="textUri"-->
-            <!--android:defaultValue=""-->
+            <!--android:visibility="gone"-->
+            <!--android:defaultValue="http://sms.deadangroup.com/api/msync"-->
     <!--&gt;</EditTextPreference>-->
 
     <EditTextPreference
             android:key="phone_number"
             android:title="Your phone number"
             android:inputType="phone"
-            android:defaultValue=""
+            android:defaultValue="123456"
     ></EditTextPreference>
 
     <EditTextPreference
             android:key="password"
-            android:title="Password"
+            android:title="PassKey"
             android:password="true"
     ></EditTextPreference>
 
@@ -66,8 +67,8 @@
     <!--&gt;-->
         <!--<intent-->
             <!--android:action="android.intent.action.MAIN"-->
-            <!--android:targetPackage="com.mkodiapp.msync"-->
-            <!--android:targetClass="com.mkodiapp.msync.ui.ExpansionPacks" />-->
+            <!--android:targetPackage="com.deadangroup.msync"-->
+            <!--android:targetClass="com.deadangroup.msync.ui.ExpansionPacks" />-->
     <!--</PreferenceScreen>-->
 
     <!--<CheckBoxPreference-->
@@ -84,8 +85,8 @@
     <!--&gt;-->
        <!--<intent-->
             <!--android:action="android.intent.action.MAIN"-->
-            <!--android:targetPackage="com.mkodiapp.msync"-->
-            <!--android:targetClass="com.mkodiapp.msync.ui.IgnoredPhoneNumbers" />-->
+            <!--android:targetPackage="com.deadangroup.msync"-->
+            <!--android:targetClass="com.deadangroup.msync.ui.IgnoredPhoneNumbers" />-->
     <!--</PreferenceScreen>-->
 
     <!--<CheckBoxPreference-->
@@ -103,8 +104,8 @@
     <!--&gt;-->
        <!--<intent-->
             <!--android:action="android.intent.action.MAIN"-->
-            <!--android:targetPackage="com.mkodiapp.msync"-->
-            <!--android:targetClass="com.mkodiapp.msync.ui.TestPhoneNumbers" />-->
+            <!--android:targetPackage="com.deadangroup.msync"-->
+            <!--android:targetClass="com.deadangroup.msync.ui.TestPhoneNumbers" />-->
     <!--</PreferenceScreen>-->
 
     </PreferenceCategory>
@@ -210,8 +211,8 @@
         <!--&gt;-->
        <!--<intent-->
             <!--android:action="android.intent.action.MAIN"-->
-            <!--android:targetPackage="com.mkodiapp.msync"-->
-            <!--android:targetClass="com.mkodiapp.msync.ui.Help" />-->
+            <!--android:targetPackage="com.deadangroup.msync"-->
+            <!--android:targetClass="com.deadangroup.msync.ui.Help" />-->
     <!--</PreferenceScreen>-->
     <!--</PreferenceCategory>-->
 

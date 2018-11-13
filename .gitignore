@@ -49,3 +49,4 @@ singlepack/.gradle/
 singlepack/local.properties
 
 .DS_Store
+/.idea
