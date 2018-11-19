@@ -52,6 +52,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
+import javax.net.ssl.SSLContext;
+
 public final class App extends Application {
 
     public static final String TAG = "MSync-Log: %s";
@@ -888,7 +890,7 @@ public final class App extends Application {
             registry.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
 
             final SSLSocketFactory sslSocketFactory = SSLSocketFactory.getSocketFactory();
-            sslSocketFactory.setHostnameVerifier(SSLSocketFactory.BROWSER_COMPATIBLE_HOSTNAME_VERIFIER);
+            sslSocketFactory.setHostnameVerifier(SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
 
             registry.register(new Scheme("https", sslSocketFactory, 443));
 

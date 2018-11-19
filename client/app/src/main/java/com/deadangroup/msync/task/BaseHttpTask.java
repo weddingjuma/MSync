@@ -89,6 +89,10 @@ public class BaseHttpTask extends AsyncTask<String, Void, HttpData> {
             httpPost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
         }
 
+        Log.e("httpPost_URL", httpPost.getURI().toString());
+        Log.e("httpPost_Params", httpPost.getParams().toString());
+        Log.e("httpPost_Headers","arr: " + Arrays.toString(httpPost.getAllHeaders()));
+
         return httpPost;
     }
 
@@ -100,10 +104,12 @@ public class BaseHttpTask extends AsyncTask<String, Void, HttpData> {
 
             HttpClient client = app.getHttpClient();
             HttpResponse hr = client.execute(post);
+            Log.e("HttpResponse", hr.toString());
             return new HttpData(hr);
         }
         catch (Throwable ex)
         {
+            Log.e("HTTP_Exception",ex.getMessage());
             requestException = ex;
 
             try
